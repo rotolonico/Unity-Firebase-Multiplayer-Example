@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="$USER_HOME$/.Rider2019.2/system/extResources" t="IncludeRecursive" />
+    <e p="$USER_HOME$/.Rider2019.2/system/resharper-host/local/Transient/ReSharperHost/v192/SolutionCaches/_Turn Based Firebase Mutliplayer.941578598.00" t="ExcludeRecursive" />
+    <e p="$PROJECT_DIR$" t="IncludeRecursive">
+      <e p="Assembly-CSharp-Editor.csproj" t="IncludeRecursive" />
+      <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
+      <e p="Assets" t="Include">
+        <e p="Firebase" t="Include">
+          <e p="Editor" t="Include">
+            <e p="AnalyticsDependencies.xml" t="Include" />
+            <e p="AppDependencies.xml" t="Include" />
+            <e p="AuthDependencies.xml" t="Include" />
+            <e p="CrashlyticsDependencies.xml" t="Include" />
+            <e p="DatabaseDependencies.xml" t="Include" />
+            <e p="FirebaseAnalytics_version-6.7.0_manifest.txt" t="Include" />
+            <e p="FirebaseAuth_version-6.7.0_manifest.txt" t="Include" />
+            <e p="FirebaseCrashlytics_version-6.7.0_manifest.txt" t="Include" />
+            <e p="FirebaseDatabase_version-6.7.0_manifest.txt" t="Include" />
+          </e>
+          <e p="Plugins" t="Include">
+            <e p="Crashlytics" t="Include">
+              <e p="link.xml" t="Include" />
+            </e>
+            <e p="Http" t="Include">
+              <e p="link.xml" t="Include" />
+            </e>
+            <e p="link.xml" t="Include" />
+          </e>
+          <e p="m2repository" t="Include">
+            <e p="com" t="Include">
+              <e p="google" t="Include">
+                <e p="firebase" t="Include">
+                  <e p="firebase-analytics-unity" t="Include">
+                    <e p="maven-metadata.xml" t="Include" />
+                  </e>
+                  <e p="firebase-app-unity" t="Include">
+                    <e p="maven-metadata.xml" t="Include" />
+                  </e>
+                  <e p="firebase-auth-unity" t="Include">
+                    <e p="maven-metadata.xml" t="Include" />
+                  </e>
+                  <e p="firebase-crashlytics-unity" t="Include">
+                    <e p="maven-metadata.xml" t="Include" />
+                  </e>
+                  <e p="firebase-database-unity" t="Include">
+                    <e p="maven-metadata.xml" t="Include" />
+                  </e>
+                </e>
+              </e>
+            </e>
+          </e>
+        </e>
+        <e p="FullSerializer" t="Include">
+          <e p="Source" t="Include">
+            <e p="Aot" t="Include">
+              <e p="Editor" t="Include">
+                <e p="fsAotConfigurationEditor.cs" t="Include" />
+              </e>
+              <e p="fsAotCompilationManager.cs" t="Include" />
+              <e p="fsAotConfiguration.cs" t="Include" />
+              <e p="fsAotVersionInfo.cs" t="Include" />
+              <e p="fsIAotConverter.cs" t="Include" />
+            </e>
+            <e p="Converters" t="Include">
+              <e p="Unity" t="Include">
+                <e p="AnimationCurve_DirectConverter.cs" t="Include" />
+                <e p="Bounds_DirectConverter.cs" t="Include" />
+                <e p="GUIStyleState_DirectConverter.cs" t="Include" />
+                <e p="GUIStyle_DirectConverter.cs" t="Include" />
+                <e p="Gradient_DirectConverter.cs" t="Include" />
+                <e p="Keyframe_DirectConverter.cs" t="Include" />
+                <e p="LayerMask_DirectConverter.cs" t="Include" />
+                <e p="RectOffset_DirectConverter.cs" t="Include" />
+                <e p="Rect_DirectConverter.cs" t="Include" />
+                <e p="UnityEvent_Converter.cs" t="Include" />
+              </e>
+              <e p="fsArrayConverter.cs" t="Include" />
+              <e p="fsDateConverter.cs" t="Include" />
+              <e p="fsDictionaryConverter.cs" t="Include" />
+              <e p="fsEnumConverter.cs" t="Include" />
+              <e p="fsForwardConverter.cs" t="Include" />
+              <e p="fsGuidConverter.cs" t="Include" />
+              <e p="fsIEnumerableConverter.cs" t="Include" />
+              <e p="fsKeyValuePairConverter.cs" t="Include" />
+              <e p="fsNullableConverter.cs" t="Include" />
+              <e p="fsPrimitiveConverter.cs" t="Include" />
+              <e p="fsReflectedConverter.cs" t="Include" />
+              <e p="fsTypeConverter.cs" t="Include" />
+              <e p="fsWeakReferenceConverter.cs" t="Include" />
+            </e>
+            <e p="Internal" t="Include">
+              <e p="fsCyclicReferenceManager.cs" t="Include" />
+              <e p="fsOption.cs" t="Include" />
+              <e p="fsPortableReflection.cs" t="Include" />
+              <e p="fsTypeExtensions.cs" t="Include" />
+              <e p="fsVersionManager.cs" t="Include" />
+              <e p="fsVersionedType.cs" t="Include" />
+            </e>
+            <e p="Reflection" t="Include">
+              <e p="fsMetaProperty.cs" t="Include" />
+              <e p="fsMetaType.cs" t="Include" />
+              <e p="fsReflectionUtility.cs" t="Include" />
+              <e p="fsTypeCache.cs" t="Include" />
+            </e>
+            <e p="fsBaseConverter.cs" t="Include" />
+            <e p="fsConfig.cs" t="Include" />
+            <e p="fsContext.cs" t="Include" />
+            <e p="fsConverter.cs" t="Include" />
+            <e p="fsConverterRegistrar.cs" t="Include" />
+            <e p="fsData.cs" t="Include" />
+            <e p="fsDirectConverter.cs" t="Include" />
+            <e p="fsExceptions.cs" t="Include" />
+            <e p="fsISerializationCallbacks.cs" t="Include" />
+            <e p="fsIgnoreAttribute.cs" t="Include" />
+            <e p="fsJsonParser.cs" t="Include" />
+            <e p="fsJsonPrinter.cs" t="Include" />
+            <e p="fsMemberSerialization.cs" t="Include" />
+            <e p="fsObjectAttribute.cs" t="Include" />
+            <e p="fsObjectProcessor.cs" t="Include" />
+            <e p="fsPropertyAttribute.cs" t="Include" />
+            <e p="fsResult.cs" t="Include" />
+            <e p="fsSerializer.cs" t="Include" />
+          </e>
+        </e>
+        <e p="PlayServicesResolver" t="Include">
+          <e p="Editor" t="Include">
+            <e p="play-services-resolver_v1.2.135.0.txt" t="Include" />
+          </e>
+        </e>
+        <e p="RestClient" t="Include">
+          <e p="Packages" t="Include">
+            <e p="Proyecto26.RestClient" t="Include">
+              <e p="Helpers" t="Include">
+                <e p="Common.cs" t="Include" />
+                <e p="Extensions.cs" t="Include" />
+                <e p="HttpBase.cs" t="Include" />
+                <e p="JsonHelper.cs" t="Include" />
+                <e p="RequestException.cs" t="Include" />
+                <e p="RequestHelper.cs" t="Include" />
+                <e p="RequestHelperExtension.cs" t="Include" />
+                <e p="ResponseHelper.cs" t="Include" />
+                <e p="StaticCoroutine.cs" t="Include" />
+              </e>
+              <e p="RestClient.cs" t="Include" />
+              <e p="RestClientPromise.cs" t="Include" />
+            </e>
+            <e p="RSG.Promise" t="Include">
+              <e p="EnumerableExt.cs" t="Include" />
+              <e p="Exceptions" t="Include">
+                <e p="PromiseException.cs" t="Include" />
+                <e p="PromiseStateException.cs" t="Include" />
+              </e>
+              <e p="Promise.cs" t="Include" />
+              <e p="PromiseHelpers.cs" t="Include" />
+              <e p="PromiseTimer.cs" t="Include" />
+              <e p="Promise_NonGeneric.cs" t="Include" />
+              <e p="Tuple.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="Scripts" t="Include">
+          <e p="APIs" t="Include">
+            <e p="DatabaseAPI.cs" t="Include" />
+            <e p="StringSerializationAPI.cs" t="Include" />
+          </e>
+          <e p="Handlers" t="Include">
+            <e p="GameSceneHandler.cs" t="Include" />
+            <e p="LoadingSceneHandler.cs" t="Include" />
+            <e p="MatchmakingSceneHandler.cs" t="Include" />
+            <e p="MenuSceneHandler.cs" t="Include" />
+            <e p="PlayerHandler.cs" t="Include" />
+          </e>
+          <e p="Managers" t="Include">
+            <e p="GameManager.cs" t="Include" />
+            <e p="MainManager.cs" t="Include" />
+            <e p="MatchmakingManager.cs" t="Include" />
+          </e>
+          <e p="Serializables" t="Include">
+            <e p="GameInfo.cs" t="Include" />
+            <e p="Move.cs" t="Include" />
+          </e>
+        </e>
+        <e p="TextMesh Pro" t="Include">
+          <e p="Fonts" t="Include">
+            <e p="LiberationSans - OFL.txt" t="Include" />
+          </e>
+          <e p="Resources" t="Include">
+            <e p="LineBreaking Following Characters.txt" t="Include" />
+            <e p="LineBreaking Leading Characters.txt" t="Include" />
+            <e p="Shaders" t="Include">
+              <e p="TMP_Bitmap-Custom-Atlas.shader" t="Include" />
+              <e p="TMP_Bitmap-Mobile.shader" t="Include" />
+              <e p="TMP_Bitmap.shader" t="Include" />
+              <e p="TMP_SDF Overlay.shader" t="Include" />
+              <e p="TMP_SDF-Mobile Masking.shader" t="Include" />
+              <e p="TMP_SDF-Mobile Overlay.shader" t="Include" />
+              <e p="TMP_SDF-Mobile.shader" t="Include" />
+              <e p="TMP_SDF-Surface-Mobile.shader" t="Include" />
+              <e p="TMP_SDF-Surface.shader" t="Include" />
+              <e p="TMP_SDF.shader" t="Include" />
+              <e p="TMP_Sprite.shader" t="Include" />
+              <e p="TMPro.cginc" t="Include" />
+              <e p="TMPro_Properties.cginc" t="Include" />
+              <e p="TMPro_Surface.cginc" t="Include" />
+            </e>
+          </e>
+          <e p="Sprites" t="Include">
+            <e p="EmojiOne Attribution.txt" t="Include" />
+          </e>
+        </e>
+      </e>
+      <e p="Temp/bin" t="ExcludeRecursive" />
+      <e p="Turn Based Firebase Mutliplayer.sln" t="IncludeFlat" />
+      <e p="obj" t="ExcludeRecursive" />
+      <e p="packages" t="ExcludeRecursive" />
+    </e>
+  </component>
+</project>
