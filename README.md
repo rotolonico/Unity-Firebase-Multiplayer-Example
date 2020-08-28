@@ -5,5 +5,4 @@ This is an example of a simple turn game created in Unity using the Firebase SDK
 ## How do I implement this into my App?
 In order to implement this for your Firebase project follow these steps:
 - Download the google-services file for your Unity project (if you need to build your App for Android or MacOS). More info [here](https://firebase.google.com/docs/unity/setup)
-- Update the EditorURL at DatabaseAPI.cs on line 17 with your Firebase project id
 - Set up cloud functions for your Firebase project (firebase init) and then copy the contents of the index.js file in this repository's assets folder and paste it in your own project index.js file. Finally deploy the changes (firebase deploy). More info [here](https://firebase.google.com/docs/functions)
