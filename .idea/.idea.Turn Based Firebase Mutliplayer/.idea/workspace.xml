@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="05fd8095-126b-4b2b-ac8e-9cb13694f2b3" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Turn Based Firebase Mutliplayer/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Turn Based Firebase Mutliplayer/.idea/indexLayout.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Turn Based Firebase Mutliplayer/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Turn Based Firebase Mutliplayer/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/APIs/DatabaseAPI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/APIs/DatabaseAPI.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Managers/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Managers/GameManager.cs" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -46,8 +43,8 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Handlers/GameSceneHandler.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Managers/MatchmakingManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Handlers/PlayerHandler.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Managers/GameManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/APIs/DatabaseAPI.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Managers/GameManager.cs" />
       </list>
     </option>
   </component>
@@ -106,7 +103,7 @@
       <workItem from="1597855017570" duration="741000" />
       <workItem from="1597911513123" duration="6622000" />
       <workItem from="1598000818623" duration="12392000" />
-      <workItem from="1598602663984" duration="247000" />
+      <workItem from="1598602663984" duration="1116000" />
     </task>
     <servers />
   </component>

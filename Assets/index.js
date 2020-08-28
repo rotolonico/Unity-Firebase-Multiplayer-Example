@@ -28,7 +28,9 @@ exports.matchmaker = functions.database.ref('matchmaking/{playerId}')
                 matchmaking[secondPlayer.key] = gameId;
                 return matchmaking;
 
-            }).then(unused => {
+            }).then(result => {
+
+                if (result.snapshot.child(context.params.playerId).val() !== gameId) return;
 
                 var game = {
                     gameInfo: {
@@ -45,7 +47,7 @@ exports.matchmaker = functions.database.ref('matchmaking/{playerId}')
                 }).catch(error => {
                     console.log(error);
                 });
-                
+
                 return null;
 
             }).catch(error => {
