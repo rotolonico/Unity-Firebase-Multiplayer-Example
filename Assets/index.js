@@ -19,20 +19,35 @@ exports.matchmaker = functions.database.ref('matchmaking/{playerId}')
 
             if (secondPlayer === null) return null;
 
-            var game = {
-                gameInfo: {
-                    gameId: gameId,
-                    playersIds: [context.params.playerId, secondPlayer.key]
-                },
-                turn: context.params.playerId
-            }
+            database.ref("matchmaking").transaction(function (matchmaking) {
 
-            database.ref("games/" + gameId).set(game).then(snapshot => {
+                // If any of the players gets into another game during the transaction, abort the operation
+                if (matchmaking === null || matchmaking[context.params.playerId] !== "placeholder" || matchmaking[secondPlayer.key] !== "placeholder") return matchmaking;
 
-                database.ref("matchmaking/" + context.params.playerId).set(gameId);
-                secondPlayer.ref.set(gameId);
+                matchmaking[context.params.playerId] = gameId;
+                matchmaking[secondPlayer.key] = gameId;
+                return matchmaking;
 
+            }).then(unused => {
+
+                var game = {
+                    gameInfo: {
+                        gameId: gameId,
+                        playersIds: [context.params.playerId, secondPlayer.key]
+                    },
+                    turn: context.params.playerId
+                }
+
+                database.ref("games/" + gameId).set(game).then(snapshot => {
+
+                    console.log("Game created successfully!")
+                    return null;
+                }).catch(error => {
+                    console.log(error);
+                });
+                
                 return null;
+
             }).catch(error => {
                 console.log(error);
             });

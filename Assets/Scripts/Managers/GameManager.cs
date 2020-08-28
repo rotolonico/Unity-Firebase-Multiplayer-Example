@@ -15,19 +15,28 @@ namespace Managers
         private Dictionary<string, bool> readyPlayers;
         private KeyValuePair<DatabaseReference, EventHandler<ChildChangedEventArgs>> readyListener;
         private KeyValuePair<DatabaseReference, EventHandler<ValueChangedEventArgs>> localPlayerTurnListener;
+        private KeyValuePair<DatabaseReference, EventHandler<ValueChangedEventArgs>> currentGameInfoListener;
 
-        private readonly Dictionary<string, KeyValuePair<DatabaseReference, EventHandler<ChildChangedEventArgs>>> moveListeners =
-            new Dictionary<string, KeyValuePair<DatabaseReference, EventHandler<ChildChangedEventArgs>>>();
+        private readonly Dictionary<string, KeyValuePair<DatabaseReference, EventHandler<ChildChangedEventArgs>>>
+            moveListeners =
+                new Dictionary<string, KeyValuePair<DatabaseReference, EventHandler<ChildChangedEventArgs>>>();
 
         public void GetCurrentGameInfo(string gameId, string localPlayerId, Action<GameInfo> callback,
             Action<AggregateException> fallback)
         {
-            DatabaseAPI.GetObject<GameInfo>($"games/{gameId}/gameInfo", gameInfo =>
-            {
-                currentGameInfo = gameInfo;
-                currentGameInfo.localPlayerId = localPlayerId;
-                callback(currentGameInfo);
-            }, fallback);
+            currentGameInfoListener =
+                DatabaseAPI.ListenForValueChanged($"games/{gameId}/gameInfo", args =>
+                {
+                    if (!args.Snapshot.Exists) return;
+
+                    var gameInfo =
+                        StringSerializationAPI.Deserialize(typeof(GameInfo), args.Snapshot.GetRawJsonValue()) as
+                            GameInfo;
+                    currentGameInfo = gameInfo;
+                    currentGameInfo.localPlayerId = localPlayerId;
+                    DatabaseAPI.StopListeningForValueChanged(currentGameInfoListener);
+                    callback(currentGameInfo);
+                }, fallback);
         }
 
         public void SetLocalPlayerReady(Action callback, Action<AggregateException> fallback)

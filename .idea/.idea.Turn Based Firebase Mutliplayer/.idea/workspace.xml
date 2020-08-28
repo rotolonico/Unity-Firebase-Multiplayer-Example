@@ -5,7 +5,7 @@
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Turn Based Firebase Mutliplayer/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Turn Based Firebase Mutliplayer/.idea/indexLayout.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Turn Based Firebase Mutliplayer/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Turn Based Firebase Mutliplayer/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/APIs/DatabaseAPI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/APIs/DatabaseAPI.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Managers/MatchmakingManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Managers/MatchmakingManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Managers/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Managers/GameManager.cs" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -43,11 +43,11 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Managers/MainManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Handlers/MatchmakingSceneHandler.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Serializables/Move.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Managers/GameManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Handlers/GameSceneHandler.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/APIs/DatabaseAPI.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Managers/MatchmakingManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Handlers/PlayerHandler.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Managers/GameManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/APIs/DatabaseAPI.cs" />
       </list>
     </option>
   </component>
@@ -106,6 +106,7 @@
       <workItem from="1597855017570" duration="741000" />
       <workItem from="1597911513123" duration="6622000" />
       <workItem from="1598000818623" duration="12392000" />
+      <workItem from="1598602663984" duration="247000" />
     </task>
     <servers />
   </component>
@@ -119,7 +120,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>

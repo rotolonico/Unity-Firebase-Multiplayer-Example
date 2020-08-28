@@ -12,11 +12,7 @@ namespace APIs
     {
         private static DatabaseReference reference;
 
-        public static void InitializeDatabase()
-        {
-            FirebaseApp.DefaultInstance.SetEditorDatabaseUrl("https://[PROJECT-ID].firebaseio.com/");
-            reference = FirebaseDatabase.DefaultInstance.RootReference;
-        }
+        public static void InitializeDatabase() => reference = FirebaseDatabase.DefaultInstance.RootReference;
 
         public static void PostJSON(string path, string json, Action callback, Action<AggregateException> fallback)
         {
@@ -133,7 +129,7 @@ namespace APIs
             KeyValuePair<DatabaseReference, EventHandler<ChildChangedEventArgs>> listener) =>
             listener.Key.ChildAdded -= listener.Value;
 
-        public static KeyValuePair<DatabaseReference, EventHandler<ChildChangedEventArgs>> ListenForChildRemoved(string path, Action<ChildChangedEventArgs> onChildAdded,
+        public static KeyValuePair<DatabaseReference, EventHandler<ChildChangedEventArgs>> ListenForChildRemoved(string path, Action<ChildChangedEventArgs> onChildRemoved,
             Action<AggregateException> fallback)
         {
             var customReference = GetReferenceFromPath(path);
@@ -147,7 +143,7 @@ namespace APIs
                     return;
                 }
 
-                onChildAdded(args);
+                onChildRemoved(args);
             }
             
             var listenerPair = new KeyValuePair<DatabaseReference, EventHandler<ChildChangedEventArgs>>(customReference,
@@ -161,7 +157,7 @@ namespace APIs
             KeyValuePair<DatabaseReference, EventHandler<ChildChangedEventArgs>> listener) =>
             listener.Key.ChildRemoved -= listener.Value;
 
-        public static KeyValuePair<DatabaseReference, EventHandler<ChildChangedEventArgs>> ListenForChildChanged(string path, Action<ChildChangedEventArgs> onChildAdded,
+        public static KeyValuePair<DatabaseReference, EventHandler<ChildChangedEventArgs>> ListenForChildChanged(string path, Action<ChildChangedEventArgs> onChildChanged,
             Action<AggregateException> fallback)
         {
             var customReference = GetReferenceFromPath(path);
@@ -175,7 +171,7 @@ namespace APIs
                     return;
                 }
 
-                onChildAdded(args);
+                onChildChanged(args);
             }
             
             var listenerPair = new KeyValuePair<DatabaseReference, EventHandler<ChildChangedEventArgs>>(customReference,
@@ -189,7 +185,7 @@ namespace APIs
             KeyValuePair<DatabaseReference, EventHandler<ChildChangedEventArgs>> listener) =>
             listener.Key.ChildChanged -= listener.Value;
 
-        public static KeyValuePair<DatabaseReference, EventHandler<ValueChangedEventArgs>> ListenForValueChanged(string path, Action<ValueChangedEventArgs> onChildAdded,
+        public static KeyValuePair<DatabaseReference, EventHandler<ValueChangedEventArgs>> ListenForValueChanged(string path, Action<ValueChangedEventArgs> onValueChanged,
             Action<AggregateException> fallback)
         {
             var customReference = GetReferenceFromPath(path);
@@ -203,7 +199,7 @@ namespace APIs
                     return;
                 }
 
-                onChildAdded(args);
+                onValueChanged(args);
             }
             
             var listenerPair = new KeyValuePair<DatabaseReference, EventHandler<ValueChangedEventArgs>>(customReference,
