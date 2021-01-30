@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Firebase;
 using Firebase.Database;
-using Firebase.Unity.Editor;
 using UnityEngine;
 
 namespace APIs
@@ -50,19 +48,19 @@ namespace APIs
             {
                 if (task.IsCanceled)
                 {
-                    Debug.LogError("PostJSON was canceled.");
+                    Debug.LogError("PushJSON was canceled.");
                     fallback(task.Exception);
                     return;
                 }
 
                 if (task.IsFaulted)
                 {
-                    Debug.LogError("PostJSON encountered an error: " + task.Exception);
+                    Debug.LogError("PushJSON encountered an error: " + task.Exception);
                     fallback(task.Exception);
                     return;
                 }
 
-                Debug.Log("JSON posted successfully");
+                Debug.Log("JSON pushed successfully");
                 callback();
             });
         }
