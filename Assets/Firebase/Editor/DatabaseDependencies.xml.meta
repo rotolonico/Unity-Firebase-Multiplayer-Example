@@ -2,7 +2,8 @@ fileFormatVersion: 2
 guid: 6f0764197a37428ba5aa9658907d1b56
 labels:
 - gvh
-- gvh_version-6.7.0
+- gvh_version-10.1.1
+- gvhp_exportpath-Firebase/Editor/DatabaseDependencies.xml
 timeCreated: 1480838400
 DefaultImporter:
   userData:

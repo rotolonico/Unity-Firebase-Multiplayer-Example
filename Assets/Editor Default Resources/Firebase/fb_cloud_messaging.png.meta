@@ -2,7 +2,8 @@ fileFormatVersion: 2
 guid: 837e8e1f35e334e81931d0857680cebf
 labels:
 - gvh
-- gvh_version-6.7.0
+- gvh_version-10.1.1
+- gvhp_exportpath-Editor Default Resources/Firebase/fb_cloud_messaging.png
 timeCreated: 1473376336
 licenseType: Pro
 TextureImporter:

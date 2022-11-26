@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Serializables
 {
@@ -6,7 +7,7 @@ namespace Serializables
     public class GameInfo
     {
         public string gameId;
-        public string[] playersIds;
+        public Dictionary<string, PlayerInfo> playersInfo;
         public string localPlayerId;
     }
 }

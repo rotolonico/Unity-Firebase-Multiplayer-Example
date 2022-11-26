@@ -2,7 +2,8 @@ fileFormatVersion: 2
 guid: fd89c3e756de4b17a6bde12e1a74a089
 labels:
 - gvh
-- gvh_version-6.7.0
+- gvh_version-10.1.1
+- gvhp_exportpath-Firebase/m2repository/com/google/firebase/firebase-database-unity/maven-metadata.xml
 timeCreated: 1480838400
 DefaultImporter:
   userData:

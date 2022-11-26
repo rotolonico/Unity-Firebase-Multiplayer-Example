@@ -10,7 +10,7 @@ namespace Handlers
         private void Start()
         {
             DatabaseAPI.InitializeDatabase();
-            SceneManager.LoadScene("MenuScene");
+            SceneManager.LoadScene(AuthAPI.IsSignedIn() ? "MenuScene" : "LoginScene");
         }
     }
 }

@@ -1,4 +1,6 @@
-﻿using Serializables;
+﻿using System.Collections;
+using System.Threading.Tasks;
+using Serializables;
 using UnityEngine;
 
 namespace Managers
@@ -10,14 +12,33 @@ namespace Managers
         public MatchmakingManager matchmakingManager;
         public GameManager gameManager;
 
-        public string currentLocalPlayerId; // You can use Firebase Auth to turn this into a userId. Just using the player name for a player id as an example for now!
+        public string currentLocalPlayerName;
 
-        private void Awake() => Instance = this;
+        private void Awake()
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
 
         private void Start()
         {
             matchmakingManager = GetComponent<MatchmakingManager>();
             gameManager = GetComponent<GameManager>();
+        }
+        
+        public IEnumerator WaitForTask(Task task)
+        {
+            yield return new WaitUntil(() => task.IsCompleted);
+        }
+        
+        public async Task<Task> WaitForTaskAsync(Task task)
+        {
+            await Task.Run(async () =>
+            {
+                while (task.IsCompleted) await Task.Delay(100);
+            });
+            
+            return task;
         }
     }
 }

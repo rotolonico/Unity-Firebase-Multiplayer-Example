@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using Managers;
 using Serializables;
 using TMPro;
@@ -8,7 +9,9 @@ namespace Handlers
 {
     public class PlayerHandler : MonoBehaviour
     {
-        public string playerId;
+        [SerializeField] private TextMeshPro nameText;
+        
+        public PlayerInfo playerInfo;
 
         public bool localPlayer;
         public bool isLocalPlayerTurn;
@@ -30,20 +33,21 @@ namespace Handlers
                 }, Debug.Log);
             }
             else
-            {
                 GetComponent<SpriteRenderer>().color = Color.blue;
-                MainManager.Instance.gameManager.ListenForMoves(playerId, ExecuteMove, Debug.Log);
-            }
+
+            nameText.text = playerInfo.name;
+            
+            MainManager.Instance.gameManager.ListenForMoves(playerInfo.id, ExecuteMove, Debug.Log);
         }
 
         private void Update()
         {
             if (executeMove)
             {
-                transform.position += (Vector3) moveToExecute.direction;
+                transform.position += (Vector3)moveToExecute.direction;
                 executeMove = false;
             }
-            
+
             if (!localPlayer) return;
             yourTurnText.SetActive(isLocalPlayerTurn);
             if (!isLocalPlayerTurn) return;
@@ -54,15 +58,22 @@ namespace Handlers
             if (Math.Abs(x) < 0.01f && Math.Abs(y) < 0.01f) return;
 
             var move = new Move(new Vector2(x, y));
-            MainManager.Instance.gameManager.SendMove(move,
-                () => MainManager.Instance.gameManager.SetTurnToOtherPlayer(playerId, () => ExecuteMove(move),
-                    Debug.Log), error =>
-                {
-                    Debug.Log(error);
-                    isLocalPlayerTurn = true;
-                });
+            StartCoroutine(SendMoveCoroutine(move));
 
             isLocalPlayerTurn = false;
+        }
+
+        private IEnumerator SendMoveCoroutine(Move move)
+        {
+            var sendMoveTask = MainManager.Instance.gameManager.SendMove(move);
+            yield return sendMoveTask.WaitForTask();
+
+            if (sendMoveTask.Result.isFaulted)
+            {
+                Debug.Log(sendMoveTask.Result.error.readableMessage);
+                isLocalPlayerTurn = true;
+            }
+            else Debug.Log("Move sent!");
         }
 
         private void ExecuteMove(Move move)

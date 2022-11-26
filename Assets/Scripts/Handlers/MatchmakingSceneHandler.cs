@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Collections;
 using APIs;
 using Managers;
+using Serializables;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -17,13 +19,21 @@ namespace Handlers
 
         private void Start() => JoinQueue();
 
-        private void JoinQueue() =>
-            MainManager.Instance.matchmakingManager.JoinQueue(MainManager.Instance.currentLocalPlayerId, gameId =>
-                {
-                    this.gameId = gameId;
-                    gameFound = true;
-                },
-                Debug.Log);
+        private void JoinQueue() => StartCoroutine(JoinQueueCoroutine());
+
+        private IEnumerator JoinQueueCoroutine()
+        {
+            var playerName = MainManager.Instance.currentLocalPlayerName;
+            var joinQueueTask = MainManager.Instance.matchmakingManager.JoinQueue(playerName, gameId =>
+            {
+                this.gameId = gameId;
+                gameFound = true;
+            }, Debug.Log);
+
+            yield return joinQueueTask.WaitForTask();
+            
+            if (joinQueueTask.Result.isFaulted) Debug.LogError(joinQueueTask.Result.error.readableMessage);
+        }
 
         private void Update()
         {
@@ -34,12 +44,12 @@ namespace Handlers
 
         private void GameFound()
         {
-            MainManager.Instance.gameManager.GetCurrentGameInfo(gameId, MainManager.Instance.currentLocalPlayerId,
+            MainManager.Instance.gameManager.GetCurrentGameInfo(gameId, AuthAPI.GetUserId(),
                 gameInfo =>
                 {
                     Debug.Log("Game found. Ready-up!");
                     gameFound = true;
-                    MainManager.Instance.gameManager.ListenForAllPlayersReady(gameInfo.playersIds,
+                    MainManager.Instance.gameManager.ListenForAllPlayersReady(gameInfo.playersInfo.Keys,
                         playerId => Debug.Log(playerId + " is ready!"), () =>
                         {
                             Debug.Log("All players are ready!");
@@ -54,13 +64,19 @@ namespace Handlers
         public void LeaveQueue()
         {
             if (gameFound) MainManager.Instance.gameManager.StopListeningForAllPlayersReady();
-            else
-                MainManager.Instance.matchmakingManager.LeaveQueue(MainManager.Instance.currentLocalPlayerId,
-                    () => Debug.Log("Left queue successfully"), Debug.Log);
+            MainManager.Instance.matchmakingManager.LeaveQueue();
             SceneManager.LoadScene("MenuScene");
         }
 
-        public void Ready() =>
-            MainManager.Instance.gameManager.SetLocalPlayerReady(() => Debug.Log("You are now ready!"), Debug.Log);
+        public void Ready() => StartCoroutine(ReadyCoroutine());
+
+        private IEnumerator ReadyCoroutine()
+        {
+            var readyUpTask = MainManager.Instance.gameManager.SetLocalPlayerReady();
+            yield return readyUpTask.WaitForTask();
+            
+            if (readyUpTask.Result.isFaulted) Debug.LogError(readyUpTask.Result.error.readableMessage);
+            else Debug.Log("You are now ready!");
+        }
     }
 }

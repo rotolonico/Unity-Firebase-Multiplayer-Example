@@ -2,7 +2,8 @@ fileFormatVersion: 2
 guid: 2955864b938094f579ea9902b65ac10c
 labels:
 - gvh
-- gvh_version-6.7.0
+- gvh_version-10.1.1
+- gvhp_exportpath-Editor Default Resources/Firebase/fb_storage_dark.png
 timeCreated: 1481243898
 licenseType: Pro
 TextureImporter:

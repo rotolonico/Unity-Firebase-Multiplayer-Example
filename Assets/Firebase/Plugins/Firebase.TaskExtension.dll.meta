@@ -2,7 +2,8 @@ fileFormatVersion: 2
 guid: f5d4069c578548ba9f199b46d61bf06d
 labels:
 - gvh
-- gvh_version-6.7.0
+- gvh_version-10.1.1
+- gvhp_exportpath-Firebase/Plugins/Firebase.TaskExtension.dll
 timeCreated: 1480838400
 PluginImporter:
   serializedVersion: 1
@@ -66,6 +67,11 @@ PluginImporter:
       settings:
         CPU: AnyCPU
     iOS:
+      enabled: 1
+      settings:
+        CompileFlags:
+        FrameworkDependencies:
+    tvOS:
       enabled: 1
       settings:
         CompileFlags:

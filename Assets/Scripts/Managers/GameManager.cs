@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using APIs;
 using Firebase.Database;
 using Serializables;
@@ -39,12 +40,7 @@ namespace Managers
                 }, fallback);
         }
 
-        public void SetLocalPlayerReady(Action callback, Action<AggregateException> fallback)
-        {
-            DatabaseAPI.PostObject($"games/{currentGameInfo.gameId}/ready/{currentGameInfo.localPlayerId}", true,
-                callback,
-                fallback);
-        }
+        public async Task<RequestState> SetLocalPlayerReady() => await FunctionsAPI.CallSetReadyFunction();
 
         public void ListenForAllPlayersReady(IEnumerable<string> playersId, Action<string> onNewPlayerReady,
             Action onAllPlayersReady,
@@ -63,15 +59,7 @@ namespace Managers
 
         public void StopListeningForAllPlayersReady() => DatabaseAPI.StopListeningForChildAdded(readyListener);
 
-        public void SendMove(Move move, Action callback, Action<AggregateException> fallback)
-        {
-            DatabaseAPI.PushObject($"games/{currentGameInfo.gameId}/{currentGameInfo.localPlayerId}/moves/", move,
-                () =>
-                {
-                    Debug.Log("Moved sent successfully!");
-                    callback();
-                }, fallback);
-        }
+        public async Task<RequestState> SendMove(Move move) => await FunctionsAPI.CallMakeMoveFunction(move);
 
         public void ListenForLocalPlayerTurn(Action onLocalPlayerTurn, Action<AggregateException> fallback)
         {
@@ -91,8 +79,12 @@ namespace Managers
         {
             moveListeners.Add(playerId, DatabaseAPI.ListenForChildAdded(
                 $"games/{currentGameInfo.gameId}/{playerId}/moves/",
-                args => onNewMove(
-                    StringSerializationAPI.Deserialize(typeof(Move), args.Snapshot.GetRawJsonValue()) as Move),
+                args =>
+                {
+                    var rawMove =
+                        StringSerializationAPI.Deserialize(typeof(int[]), args.Snapshot.GetRawJsonValue()) as int[];
+                    onNewMove(new Move(rawMove));
+                },
                 fallback));
         }
 
@@ -104,9 +96,17 @@ namespace Managers
 
         public void SetTurnToOtherPlayer(string currentPlayerId, Action callback, Action<AggregateException> fallback)
         {
-            var otherPlayerId = currentGameInfo.playersIds.First(p => p != currentPlayerId);
+            var otherPlayerId = currentGameInfo.playersInfo.Keys.First(p => p != currentPlayerId);
             DatabaseAPI.PostObject(
                 $"games/{currentGameInfo.gameId}/turn", otherPlayerId, callback, fallback);
+        }
+
+        public void LeaveGame()
+        {
+            StopListeningForLocalPlayerTurn();
+            var players = currentGameInfo.playersInfo.Keys;
+            foreach (var player in players) StopListeningForMoves(player);
+            MainManager.Instance.matchmakingManager.LeaveQueue();
         }
     }
 }

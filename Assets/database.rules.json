@@ -1,0 +1,14 @@
+{
+  "rules": {
+    "matchmaking": {
+      "$uid": {
+        ".read": "$uid === auth.uid"
+      }
+    },
+    "games": {
+      "$game": {
+        ".read": "root.child('matchmaking').child(auth.uid).child('gameId').val() === $game"
+      }
+    }
+  }
+}

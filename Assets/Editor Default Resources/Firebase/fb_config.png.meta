@@ -2,7 +2,8 @@ fileFormatVersion: 2
 guid: 415eaec414af14d11955222a282aca08
 labels:
 - gvh
-- gvh_version-6.7.0
+- gvh_version-10.1.1
+- gvhp_exportpath-Editor Default Resources/Firebase/fb_config.png
 timeCreated: 1473376335
 licenseType: Pro
 TextureImporter:
