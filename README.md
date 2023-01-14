@@ -10,3 +10,4 @@ In order to implement this for your Firebase project follow these steps:
 ## v2 branch
 - The v2 branch is an improvement of the Multiplayer system showcased in the [tutorial video](youtu.be/wBvWaTTxfmo), which allows for a secure multiplayer example. This is done by disallowing the client from writing to the database completely and instead validating all requests through cloud functions.
 - Additionally, Realtime Rules have been added to make it so the client can only read their own matchmaking and game data (database.rules.json) 
+- You can watch the updated video that showcases the v2 branch [here](https://youtu.be/pjOlGwxYNXs)
